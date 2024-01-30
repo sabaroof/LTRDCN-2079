@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-BACKEND_URL = 'http://' + os.getenv('BACKEND_URL') + ':' + os.getenv('BACKEND_PORT')
+BACKEND_URL = 'http://' + os.getenv('BACKEND_URL') + ':' + os.getenv('BACKEND_PORT') + '/version'
 
 @app.route('/')
 def home():
