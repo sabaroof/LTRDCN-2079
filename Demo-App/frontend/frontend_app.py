@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 logging.basicConfig(level=logging.INFO)
 
-BACKEND_URL = 'http://' + os.getenv('BACKEND_URL') + ':' + os.getenv('BACKEND_PORT') + '/version'
+BACKEND_URL = 'http://' + os.getenv('BACKEND_URL') + ':' + os.getenv('BACKEND_PORT') + '/version' + '/version'
 
 @app.route('/')
 def home():
