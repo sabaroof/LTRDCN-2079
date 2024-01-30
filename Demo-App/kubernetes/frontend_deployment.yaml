@@ -22,6 +22,6 @@ spec:
         - containerPort: 8080
         env:
         - name: BACKEND_URL
-          value: "backend-service/version"
+          value: "backend-service"
         - name: BACKEND_PORT
           value: "5000"
