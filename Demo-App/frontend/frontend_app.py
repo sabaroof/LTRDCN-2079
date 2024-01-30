@@ -14,21 +14,17 @@ def home():
     try:
         response = requests.get(BACKEND_URL, timeout=5)
         response.raise_for_status()
-    except requests.exceptions.HTTPError as errh:
-        app.logger.error(f"HTTP Error occurred: {errh}")
-        return f"HTTP Error occurred: {errh}"
-    except requests.exceptions.ConnectionError as errc:
-        app.logger.error(f"Error Connecting: {errc}")
-        return f"Error Connecting: {errc}"
-    except requests.exceptions.Timeout as errt:
-        app.logger.error(f"Timeout Error: {errt}")
-        return f"Timeout Error: {errt}"
-    except requests.exceptions.RequestException as err:
-        app.logger.error(f"Something went wrong: {err}")
-        return f"Something went wrong: {err}"
+    except (requests.exceptions.HTTPError,
+            requests.exceptions.ConnectionError,
+            requests.exceptions.Timeout,
+            requests.exceptions.RequestException) as err:
+        app.logger.error(f"Error occurred: {err}")
+        return f"Error occurred: {err}"
     else:
         data = response.json()
-        return render_template_string(data['content'])
+        image_url = BACKEND_BASE_URL + data['image_url']
+        content = '<body style="background: url(' + image_url + ');">' + data['content'] + '</body>'
+        return render_template_string(content)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
