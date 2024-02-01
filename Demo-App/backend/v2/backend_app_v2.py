@@ -6,7 +6,7 @@ app = Flask(__name__)
 def version_api():
     image_url = url_for('static', filename='background.png')
     return jsonify(
-        version='1.0.0',
+        version='2.0.0',
         content='<h1 style="color:white;">Version: 2.0.0</h1>',
         image_url=image_url
     )
