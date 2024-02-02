@@ -1,0 +1,7 @@
+apiVersion: aci.snat/v1
+kind: SnatPolicy
+metadata:
+  name: my-snat-policy
+spec:
+  snatIp:
+  - 10.6.0.2

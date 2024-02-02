@@ -1,0 +1,12 @@
+apiVersion: aci.snat/v1
+kind: SnatPolicy
+metadata:
+  name: my-snat-policy-2
+spec:
+  selector:
+    labels:
+      apply-snat: "true" 
+  snatIp:
+  - 10.7.0.2
+  destIp:
+  - 192.168.255.0/24
