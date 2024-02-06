@@ -4,7 +4,7 @@ metadata:
   labels:
     app: vm1
   name: vm1
-  namespace: student1
+  namespace: studentX    # Replace X with your setup ID
 spec:
   dataVolumeTemplates:
   - apiVersion: cdi.kubevirt.io/v1beta1
@@ -47,6 +47,7 @@ spec:
           - bridge: {}
             model: virtio
             name: nic-bridge-net01
+            macAddress: 02:cf:f0:00:00:XX  # Replace XX with your setup ID, for single digit numbers use 01, 02, etc
           rng: {}
         features:
           smm:
@@ -77,6 +78,8 @@ spec:
             version: 2
             ethernets:
               eth1:
-                address:
-                  - 192.168.200.11/24
+                match:
+                  macaddress: 02:cf:f0:00:00:XX   # Replace XX with your setup ID, for single digit numbers use 01, 02, etc
+                addresses:
+                  - 192.168.2XX.11/24    # Replace XX with your setup ID, for single digit numbers use 01, 02, etc
         name: cloudinitdisk

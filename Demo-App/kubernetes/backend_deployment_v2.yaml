@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    opflex.cisco.com/endpoint-group: '{"tenant":"clocpXX","app-profile":"aci-containers-clocpXX","name":"backend_v2"}'
+    opflex.cisco.com/endpoint-group: '{"tenant":"clocp02","app-profile":"aci-containers-clocp02","name":"backend_v2"}'
   name: backend-deployment-2
   labels:
     app: backend-2
